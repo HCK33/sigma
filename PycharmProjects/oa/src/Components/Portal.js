@@ -7,15 +7,14 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import { grey } from '@material-ui/core/colors';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
 import IconButton from '@material-ui/core/IconButton';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 
 
-
-
-
 const useStyles = makeStyles(theme => ({
+  root: {
+      display: 'inline-block',
+  },
   card: {
     height: 500,
     width: 370,
@@ -29,17 +28,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Portal() {
+export default function Portal(props) {
     const classes = useStyles();
 
     return (
-        <div>
+        <div className={classes.root}>
             <Card className={classes.card}>
                 <CardHeader
                     className={classes.header}
                     avatar={
                         <Avatar aria-label="app-logo" className={classes.avatar}>
-                            <MenuBookIcon/>
+                            {props.icon}
                         </Avatar>
                     }
                     action={
@@ -47,8 +46,8 @@ export default function Portal() {
                             <AspectRatioIcon/>
                         </IconButton>
                     }
-                    title="High Level Applications"
-                    subheader="Optional explanations for these"
+                    title={props.name}
+                    subheader={props.description}
                 />
                 <CardContent>
                     <Typography variant="h3">Font</Typography>
