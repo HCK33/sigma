@@ -8,7 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import { grey } from '@material-ui/core/colors';
 import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
+import AppSuite from './AppSuite'
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,6 +33,16 @@ const useStyles = makeStyles(theme => ({
 export default function Portal(props) {
     const classes = useStyles();
 
+    const [fullWidth] = React.useState(true);
+    const [maxWidth] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleToggle = () => {
+        setOpen(!open);
+    };
+
     return (
         <div className={classes.root}>
             <Card className={classes.card}>
@@ -42,13 +54,21 @@ export default function Portal(props) {
                         </Avatar>
                     }
                     action={
-                        <IconButton aria-label="expand">
+                        <IconButton aria-label="expand" onClick={handleToggle}>
                             <AspectRatioIcon/>
                         </IconButton>
                     }
                     title={props.name}
                     subheader={props.description}
                 />
+                <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        fullWidth={fullWidth}
+                        maxWidth={maxWidth}
+                >
+                    <AppSuite/>
+                </Dialog>
                 <CardContent>
                     <Typography variant="h3">Font</Typography>
                     <Typography variant="body2">Font</Typography>
