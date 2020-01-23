@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import { grey } from '@material-ui/core/colors';
 import IconButton from '@material-ui/core/IconButton';
 import Dialog from '@material-ui/core/Dialog';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
@@ -16,14 +15,17 @@ import AppSuite from './AppSuite'
 const useStyles = makeStyles(theme => ({
   root: {
       display: 'inline-block',
+      alignItems: "center",
   },
   card: {
-    height: 500,
-    width: 370,
-    backgroundColor: "#818181"
+    height: "80vh",
+    width: "30vw",
+    minWidth: "300px",
+    backgroundColor: "#4c5ca4"
   },
   avatar: {
-    backgroundColor: grey[500],
+    backgroundColor: "#4c5ca4",
+    color: "#f8c428"
   },
   header: {
     backgroundColor: "#f5f5f5"
@@ -67,7 +69,14 @@ export default function Portal(props) {
                         fullWidth={fullWidth}
                         maxWidth={maxWidth}
                 >
-                    <AppSuite/>
+                    <AppSuite
+                    icon={props.icon}
+                    name={props.name}
+                    description={props.description}
+                    component={props.component}
+                    appName={props.appName}
+                    close={handleClose}
+                    />
                 </Dialog>
                 <CardContent>
                     <Typography variant="h3">Font</Typography>

@@ -16,12 +16,16 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    color: "#f8c428"
   },
   appBar: {
-    backgroundColor: '#c2c2c2'
+    backgroundColor: '#4c5ca4'
+  },
+  logo: {
+      height: "50%",
+      width: "auto",
   }
-
 }));
 
 export default function Homebar() {

@@ -4,7 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Portal from './Portal';
+import Calendur from './Calendar'
+import Directory from './StudentDirectory'
 import GroupIcon from '@material-ui/icons/Group';
+
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
 
@@ -23,25 +26,27 @@ export default function AppContainter() {
         <div>
             <Container maxWidth="false"  color="inherit">
                 <Grid container className={classes.root} spacing={3}>
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid item s={12}>
                       <Portal
                       name="Faculty Portal"
-                      description="optional description"
                       icon={<CompareArrowsIcon/>}
+                      appName="None Yet"
                       />
                     </Grid>
-                    <Grid item xs={12} sm={8} md={4}>
+                    <Grid item s={12}>
                       <Portal
                       name="Campaign Manager"
-                      description="optional description"
                       icon={<DynamicFeedIcon/>}
+                      component={<Calendur/>}
+                      appName="Calendar"
                       />
                     </Grid>
-                    <Grid item xs={12} sm={8} md={4}>
+                    <Grid item s={12}>
                       <Portal
                       name="Student Information System"
-                      description="optional description"
                       icon={<GroupIcon/>}
+                      component={<Directory/>}
+                      appName="Directory"
                       />
                     </Grid>
                 </Grid>

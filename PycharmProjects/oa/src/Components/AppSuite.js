@@ -1,15 +1,18 @@
 import React from 'react';
 
 import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles(theme => ({
   card: {
     minWidth: 1000,
-    backgroundColor: '#979797',
+    backgroundColor: '#4c5ca4',
     minHeight: 700
   },
   bullet: {
@@ -22,6 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
   pos: {
     marginBottom: 12,
+  },
+  avatar: {
+    backgroundColor: "#4c5ca4",
+    color: "#f8c428"
   },
   header: {
     backgroundColor: "#f5f5f5"
@@ -41,11 +48,22 @@ export default function AppSuite(props) {
                             {props.icon}
                         </Avatar>
                     }
+                    action={
+                        <IconButton aria-label="expand" onClick={props.close}>
+                            <CloseIcon/>
+                        </IconButton>
+                    }
                     title={props.name}
                     subheader={props.description}
                />
                <CardContent>
-                   {props.children}
+                   <Grid
+                       alignContent="center"
+                       container
+                       justify="center"
+                       spacing={2}>
+                       {props.apps}
+                   </Grid>
                </CardContent>
            </Card>
         </div>
