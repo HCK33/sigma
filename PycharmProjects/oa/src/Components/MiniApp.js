@@ -5,7 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
+    width: "102px",
+    height: "102px",
+    margin: "5px"
   }
 });
 
@@ -14,7 +16,7 @@ export default function MiniApp(props) {
     const classes=useStyles();
     return (
         <Card className={classes.card} variant="outlined">
-
+            Mini Application
         </Card>
     )
 }

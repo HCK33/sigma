@@ -8,12 +8,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
+import Box from '@material-ui/core/Box';
+import MiniApp from './MiniApp'
 
 const useStyles = makeStyles(theme => ({
   card: {
     minWidth: 1000,
     backgroundColor: '#4c5ca4',
-    minHeight: 700
+    height: "85vh"
   },
   bullet: {
     display: 'inline-block',
@@ -32,6 +34,11 @@ const useStyles = makeStyles(theme => ({
   },
   header: {
     backgroundColor: "#f5f5f5"
+  },
+  appScroll: {
+      height: "100%",
+      width: "25%",
+      flexDirection: "column"
   }
 }));
 
@@ -57,12 +64,19 @@ export default function AppSuite(props) {
                     subheader={props.description}
                />
                <CardContent>
-                   <Grid
-                       alignContent="center"
-                       container
-                       justify="center"
-                       spacing={2}>
-                       {props.apps}
+                   <Grid container spacing={2}>
+                       <Box alignContent="flex-start" display="flex" className={classes.appScroll}>
+                           <Grid container direction="row">
+                               <MiniApp/>
+                               <MiniApp/>
+                               <MiniApp/>
+                               <MiniApp/>
+                               <MiniApp/>
+                               <MiniApp/>
+                               <MiniApp/>
+                               <MiniApp/>
+                           </Grid>
+                       </Box>
                    </Grid>
                </CardContent>
            </Card>
